@@ -46,6 +46,15 @@ Supported sources, all optional: EVM wallets and DeFi (Zerion, with Alchemy as f
 
 Optionally, before the first deploy, fill `db/owner-config.json` with your starting data (see `db/owner-config.example.json`). It is applied once, when the database is empty. If your repo is public, don't commit personal data there: load it from `/onboarding` or the API instead.
 
+### Google login (optional)
+
+Password login works on its own; Google is an extra.
+
+1. In [Google Cloud Console](https://console.cloud.google.com/apis/credentials), create an OAuth client ID of type *Web application*.
+2. Add the authorized redirect URI `https://<your-domain>/api/auth/callback/google`.
+3. Set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in Vercel and redeploy. The button shows up in `/login`.
+4. Only the Google account whose email equals `ALLOWED_EMAIL` can sign in.
+
 ### Local development
 
 ```bash
