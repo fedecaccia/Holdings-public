@@ -56,8 +56,8 @@ async function audit(client) {
      FROM last a JOIN last b ON a.account_id = b.account_id AND a.asset_id < b.asset_id
        AND abs(a.value_usd - b.value_usd) <= 0.01 * a.value_usd`,
   )
+  // Solo el conteo: los nombres y montos no van al log del build.
   console.log(`[audit] posibles duplicados en el último cierre: ${rows.length}`)
-  for (const r of rows) console.log('[audit]', JSON.stringify(r))
 }
 
 main().catch((error) => {
