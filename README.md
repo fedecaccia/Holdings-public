@@ -5,12 +5,15 @@ Track your entire portfolio and receive insights and risk alarms on Telegram.
 A single-user net worth dashboard: crypto wallets, brokers, real estate, loans and cash, all consolidated in USD with a daily close, charts, PnL and monthly cash flow. Built with Next.js, Postgres (Neon) and Vercel. The UI is in Spanish and the peso conversions are built for Argentina (dólar cripto and MEP).
 
 <p>
-  <img src="docs/screenshots/dashboard.png" alt="Dashboard" width="68%">
+  <img src="docs/screenshots/dashboard.png" alt="Overview" width="68%">
   <img src="docs/screenshots/mobile.png" alt="Mobile, dark mode" width="23%">
 </p>
-<p><img src="docs/screenshots/pnl.png" alt="PnL by asset" width="68%"></p>
+<p>
+  <img src="docs/screenshots/stocks.png" alt="Stocks category" width="45%">
+  <img src="docs/screenshots/pnl.png" alt="PnL by asset" width="45%">
+</p>
 
-<sub>Screenshots with dummy data.</sub>
+<sub>Screenshots with dummy data. Labels shown in English; the app UI is in Spanish.</sub>
 
 ## Features
 
