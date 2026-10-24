@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* Paleta: marino, azul de acento y grises azulados.
+   Los nombres viejos (--bg, --card, --accent) se mantienen para no tocar cada página. */
+:root {
+  /* Alto del header fijo (app/layout.tsx); si el header cambia, actualizarlo. */
+  --header-h: 66px;
+  --bg: #f5f8fc;
+  --card: #ffffff;
+  --pale: #f5f8fc;
+  --navy: #0a1f3c;
+  --band-ink: #cdd9e9;
+  --heading: #0a1f3c;
+  --ink: #16304f;
+  --muted: #5c6d84;
+  --faint: #8a9ab0;
+  --line: #dce4ef;
+  --accent: #2563eb;
+  --accent-soft: #e6eefc;
+  --up: #17795a;
+  --down: #b42d36;
+  --warn: #9a6410;
+  --warn-soft: #fbf3e4;
+  /* Categorías: una familia de azules y tierras, en lugar de colores sueltos. */
+  --c-stablecoin: #2f6f8f;
+  --c-crypto: #b8862f;
+  --c-defi: #6a5fae;
+  --c-acciones: #1e4a8a;
+  --c-cedears: #4f7fc4;
+  --c-bonos_on: #7d8ea6;
+  --c-fci: #5b8f7b;
+  --c-cash: #8495ab;
+  --c-real_estate: #8a6a4a;
+  --c-vehiculo: #a89a8c;
+  --c-prestamos: #6b5a7a;
+  --c-otros: #97a5b8;
+  --c-deuda: #b42d36;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #071326;
+    --card: #0c1c33;
+    --pale: #0f223d;
+    --navy: #030b18;
+    --band-ink: #9fb3cf;
+    --heading: #f1f5fb;
+    --ink: #d5e0ef;
+    --muted: #8ea2bd;
+    --faint: #61768f;
+    --line: #1c3252;
+    --accent: #7ea6ff;
+    --accent-soft: #15295a;
+    --up: #4cc196;
+    --down: #ff7d84;
+    --warn: #e0a44a;
+    --warn-soft: #2a2412;
+    --c-stablecoin: #5ba3c4;
+    --c-crypto: #e0b25e;
+    --c-defi: #a197e0;
+    --c-acciones: #5b86d6;
+    --c-cedears: #7ea6ff;
+    --c-bonos_on: #a3b2c7;
+    --c-fci: #84bba5;
+    --c-cash: #6f819a;
+    --c-real_estate: #c19a74;
+    --c-vehiculo: #b8ab9d;
+    --c-prestamos: #a593b6;
+    --c-otros: #50627a;
+    --c-deuda: #ff7d84;
+    color-scheme: dark;
+  }
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ui), -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--accent-soft); color: var(--heading); }
+/* En capas para que las utilidades de Tailwind (text-*, border-*) les ganen. */
+@layer components {
+  /* Logos de activos y plataformas (components/AssetLogo.tsx): círculo blanco con borde */
+  .logo { display: grid; place-items: center; overflow: hidden; border-radius: 9999px; background: #fff; border: 1px solid var(--line); line-height: 1; letter-spacing: -0.02em; }
+  .logo img { width: 56%; height: 56%; object-fit: contain; }
+  .logo-full { border-color: transparent; }
+  .logo-full img { width: 100%; height: 100%; }
+  .logo-badge { position: absolute; right: -4px; bottom: -3px; border-radius: 9999px; box-shadow: 0 0 0 2px var(--card); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 1px 2px rgb(10 31 60 / 0.04); }
+  .muted { color: var(--muted); }
+  .up { color: var(--up); }
+  .down { color: var(--down); }
+  /* Serifa para títulos de página y cifras principales. */
+  .display { font-family: var(--font-display), Georgia, "Times New Roman", serif; font-weight: 400; color: var(--heading); letter-spacing: -0.02em; }
+  /* Cifra principal de cada página: serifa grande con la moneda chica al costado. */
+  .figure { font-family: var(--font-display), Georgia, "Times New Roman", serif; font-weight: 400; color: var(--heading); letter-spacing: -0.03em; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+  .figure .cur { font-family: var(--font-ui), Arial, sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; color: var(--muted); vertical-align: 0.9em; margin-right: 8px; }
+  @media (min-width: 640px) { .figure { font-size: 48px; } }
+  /* Etiqueta chica en mayúsculas. */
+  .eyebrow { font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+}
+.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* En @layer base para que las utilidades de Tailwind (text-right, text-2xl) le ganen. */
+@layer base {
+  /* Que el header fijo no tape el foco ni las anclas al scrollear. */
+  html { scroll-padding-top: calc(var(--header-h) + 16px); }
+  a { color: inherit; }
+  h1 { font-family: var(--font-display), Georgia, "Times New Roman", serif; font-weight: 400; color: var(--heading); letter-spacing: -0.02em; }
+  h2 { color: var(--heading); }
+  table th { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: left; white-space: nowrap; }
+}
+input, select, textarea { background: var(--card); border: 1px solid var(--line); border-radius: 5px; padding: 6px 10px; color: var(--ink); }
+input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button { cursor: pointer; }
+.btn { background: var(--heading); color: var(--card); border-radius: 5px; padding: 7px 16px; font-weight: 500; font-size: 13px; }
+.btn:hover { background: var(--accent); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: -1px; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.crumb { display: inline-block; padding-block: 6px; color: var(--muted); }
+.crumb:hover { color: var(--accent); }

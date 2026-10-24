@@ -1,0 +1,84 @@
+{
+  "_nota": "Ejemplo con datos inventados. Copiá lo que te sirva a db/owner-config.json (o cargalo después desde /onboarding o la API).",
+  "wallets": [
+    { "provider": "zerion", "name": "MetaMask", "address": "0x0000000000000000000000000000000000000000" },
+    { "provider": "btc", "name": "Hardware wallet BTC", "address": "bc1q-tu-address" }
+  ],
+  "properties": [
+    {
+      "key": "manual:inmuebles:depto-centro",
+      "name": "Departamento centro",
+      "symbol": "DEPTO",
+      "category": "real_estate",
+      "price_source": "manual",
+      "purchase_value_usd": 120000,
+      "recurring_expense": { "amount": 150000, "currency": "ARS" },
+      "recurring_income": { "amount": 0, "currency": "ARS" },
+      "valuation_usd": 130000,
+      "valuation_date": "2026-01-01"
+    },
+    {
+      "key": "manual:inmuebles:depto-pozo",
+      "name": "Departamento en pozo (en cuotas)",
+      "symbol": "POZO",
+      "category": "real_estate",
+      "price_source": "invested",
+      "purchase_value_usd": 90000,
+      "contributions": [{ "date": "2026-01-10", "amount_usd": "20000", "note": "anticipo" }]
+    },
+    {
+      "key": "manual:vehiculos:auto",
+      "name": "Auto",
+      "symbol": "AUTO",
+      "category": "vehiculo",
+      "price_source": "manual",
+      "valuation_usd": 15000,
+      "valuation_date": "2026-01-01"
+    }
+  ],
+  "installment_debt": {
+    "key": "manual:deudas:depto-pozo",
+    "name": "Cuotas del departamento en pozo",
+    "linked_property": "manual:inmuebles:depto-pozo",
+    "total_installments": 36,
+    "nominal_installment_ars": 1000000,
+    "paid_installments": [{ "n": 1, "date": "2026-02-10", "amount_ars": "1000000", "fx_ars_usd": "1400" }]
+  },
+  "manual_holdings": [
+    {
+      "key": "manual:exchange:usdt",
+      "account": "Exchange",
+      "name": "USDT en el exchange",
+      "symbol": "USDT",
+      "category": "stablecoin",
+      "quantity": "5000",
+      "apr": 0.05,
+      "price_source": "stable"
+    },
+    {
+      "key": "manual:exchange:btc",
+      "account": "Exchange",
+      "name": "BTC en el exchange",
+      "symbol": "BTC",
+      "category": "crypto",
+      "quantity": "0.05",
+      "price_source": "coingecko",
+      "price_ref": "bitcoin"
+    }
+  ],
+  "loans": [
+    {
+      "key": "manual:prestamos:amigo",
+      "name": "Préstamo a un amigo",
+      "debtor": "Amigo",
+      "principal_usd": 5000,
+      "rate_annual": 0.08,
+      "start_date": "2026-01-01",
+      "maturity_date": "2027-01-01"
+    }
+  ],
+  "cash_flows": [],
+  "valuations": [],
+  "events": [],
+  "asset_meta": []
+}

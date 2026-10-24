@@ -1,0 +1,12 @@
+{
+  "_nota": "Tu configuración inicial: todo lo que no viene de una API. Se aplica sola con la base vacía. Ver db/owner-config.example.json.",
+  "wallets": [],
+  "properties": [],
+  "installment_debt": null,
+  "manual_holdings": [],
+  "loans": [],
+  "cash_flows": [],
+  "valuations": [],
+  "events": [],
+  "asset_meta": []
+}
